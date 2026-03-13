@@ -1,0 +1,36 @@
+{
+  "project_name": "balfurd-backend",
+  "note_project": "Backend for balfurd",
+  "description": "CRM/ERP backend django",
+  
+  "workspace": {
+    "root": "/Users/nelsonborrego/Desktop/CO/NS/balfurd-erp_backend",
+    "backend_path": "/Users/nelsonborrego/Desktop/CO/NS/balfurd-erp_backend"
+  },
+
+  "memory": {
+    "docs_path": "./docs",
+    "distilled_context": "./docs/14-distilled-context",
+    "debugging_notes": "./docs/11-debugging",
+    "session_memory": "./docs/15-session-memory"
+  },
+
+  "modules": [],
+
+  "tech_stack": {
+    "backend": "Django",
+    "database": "postgresql",
+    "async_jobs": "celery",
+    "storage": "S3"
+  },
+
+  "entry_points": {
+    "backend_api": "poetry run python manage.py runserver"
+  },
+
+  "rules": {
+    "load_distilled_context_first": true,
+    "require_debug_documentation": true,
+    "save_session_memory": true
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "memory-system/distilled-context.schema.json",
+  "title": "DistilledContextNote",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["title", "project", "type", "tags"],
+  "properties": {
+    "title": { "type": "string" },
+    "project": { "type": "string" },
+    "type": { "const": "distilled_context" },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "responsibilities": { "type": ["string", "null"] },
+    "key_files": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "risks": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "related_notes": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

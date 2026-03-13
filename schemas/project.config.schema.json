@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "memory-system/project.config.schema.json",
+  "title": "ProjectConfig",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["project_name"],
+  "properties": {
+    "project_name": { "type": "string", "minLength": 1 },
+    "note_project": { "type": ["string", "null"] },
+    "description": { "type": ["string", "null"] },
+    "workspace": {
+      "type": "object",
+      "propertyNames": { "minLength": 1 },
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1,
+        "not": { "pattern": "^/" }
+      },
+      "default": {}
+    },
+    "memory": {
+      "type": "object",
+      "propertyNames": { "minLength": 1 },
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1,
+        "not": { "pattern": "^/" }
+      },
+      "default": {}
+    },
+    "modules": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "default": []
+    },
+    "tech_stack": {
+      "type": "object",
+      "additionalProperties": true,
+      "default": {}
+    },
+    "entry_points": {
+      "type": "object",
+      "propertyNames": { "minLength": 1 },
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1,
+        "not": { "pattern": "^/" }
+      },
+      "default": {}
+    },
+    "rules": {
+      "type": "object",
+      "properties": {
+        "load_distilled_context_first": { "type": ["boolean", "null"] },
+        "require_debug_documentation": { "type": ["boolean", "null"] },
+        "save_session_memory": { "type": ["boolean", "null"] }
+      },
+      "additionalProperties": true,
+      "default": {}
+    }
+  }
+}

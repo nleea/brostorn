@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "memory-system/context-template.schema.json",
+  "title": "ContextTemplate",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["title", "type", "scope"],
+  "properties": {
+    "title": { "type": "string" },
+    "type": { "const": "context_template" },
+    "scope": {
+      "type": "string",
+      "enum": ["global", "project"]
+    },
+    "project": { "type": ["string", "null"] },
+    "problem_types": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "keywords": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "applies_to": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "related_distilled": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "related_paths": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "priority": { "type": ["integer", "null"] }
+  }
+}

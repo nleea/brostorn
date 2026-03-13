@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "memory-system/debug-note.schema.json",
+  "title": "DebugNote",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["title", "summary", "project", "type", "tags", "status"],
+  "properties": {
+    "title": { "type": "string" },
+    "project": { "type": "string" },
+    "type": { "const": "bug_fix" },
+    "module": { "type": ["string", "null"] },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["open", "fixed", "verified"]
+    },
+    "summary": { "type": "string" },
+    "symptom": { "type": ["string", "null"] },
+    "root_cause": { "type": ["string", "null"] },
+    "solution": { "type": ["string", "null"] },
+    "fix": { "type": ["string", "null"] },
+    "files_changed": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "validation": { "type": ["string", "null"] },
+    "validation_steps": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "validation_evidence": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "related_paths": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "follow_ups": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "updated_at": {
+      "type": ["string", "null"],
+      "format": "date"
+    }
+  }
+}

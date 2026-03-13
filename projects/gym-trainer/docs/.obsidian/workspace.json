@@ -1,0 +1,223 @@
+{
+  "main": {
+    "id": "607aba2b75eb1392",
+    "type": "split",
+    "children": [
+      {
+        "id": "f224c56ca6bd4955",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f6aa552f154e71c1",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "f1b07b2a58b4ca08",
+    "type": "split",
+    "children": [
+      {
+        "id": "68593d833a3b3bcf",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f8e6258c55a36f71",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "1bc0bed0979c073f",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:fitness-app",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "0459b9dca17b38d7",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 250.5
+  },
+  "right": {
+    "id": "5bf08a02f94607ec",
+    "type": "split",
+    "children": [
+      {
+        "id": "bdbf266a9fc472d3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "106d9228714feb00",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "07-PATTERNS.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for 07-PATTERNS"
+            }
+          },
+          {
+            "id": "41c695c37fa0cce6",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "07-PATTERNS.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from 07-PATTERNS"
+            }
+          },
+          {
+            "id": "64ee741f2e4bb6f7",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "dce7bc99b0632ddb",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "20ee39bc8fcaef7f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "07-PATTERNS.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of 07-PATTERNS"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "obsidian-excalidraw-plugin:New drawing": false
+    }
+  },
+  "active": "f8e6258c55a36f71",
+  "lastOpenFiles": [
+    "02-architecture/auth-flow.md",
+    "11-debugging/training-log-store-not-updated-after-upsert.md",
+    "11-debugging/logout-not-redirecting.md",
+    "13-commands/refactor.md",
+    "13-commands/document-fix.md",
+    "13-commands/debug.md",
+    "13-commands/analyze-flow.md",
+    "15-session-memory/2026-03-11-memory-system.md",
+    "15-session-memory/2026-03-11-general.md",
+    "15-session-memory/2026-03-11-config-memory-system.md",
+    "15-session-memory/2026-03-11-backend-frontend.md",
+    "README.md",
+    "AGENT_GUIDE.md",
+    "04-frontend/router.md",
+    "04-frontend/logout-flow.md",
+    "04-frontend/index.md",
+    "04-frontend/auth-store.md",
+    "00-index/memory-system-index.md",
+    "00-index/index.md",
+    "15-session-memory/demostrar-el-flujo-completo-de-documentaci-n-de-un-bug-en-fitness-app.md",
+    "14-distilled-context/meals.md",
+    "15-session-memory/cerrar-formalmente-el-bug-calendar-meals-not-completed-y-dejarlo-registrado-para-futuras-referencias.md",
+    "14-distilled-context/index.md",
+    "15-session-memory/corregir-la-ubicacion-de-la-nota-del-bug-calendar-meals-not-completed-y-eliminar-duplicados-en-11-debugging.md",
+    "11-debugging/calendar-meals-not-completed-2.md",
+    "11-debugging/calendar-meals-not-completed.md",
+    "memory-system/projects/gym-trainer/docs/11-debugging",
+    "memory-system/projects/gym-trainer/docs",
+    "memory-system/projects/gym-trainer",
+    "memory-system/projects",
+    "memory-system",
+    "16-agents",
+    "15-session-memory",
+    "15-session-memory",
+    "14-distilled-context",
+    "13-commands",
+    "Untitled.canvas"
+  ]
+}

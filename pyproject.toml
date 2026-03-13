@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "memory-system"
+version = "0.1.0"
+description = "Local-first technical memory system powered by Obsidian, FastAPI, pgvector, and MCP"
+authors = ["nleea <neldecas12@gmail.com>"]
+readme = "README.md"
+packages = [{ include = "memory_*", from = "packages" }]
+
+[tool.poetry.dependencies]
+python = ">=3.12"
+fastapi = ">=0.115.0"
+uvicorn = {extras = ["standard"], version = ">=0.30.0"}
+sqlalchemy = ">=2.0.30"
+greenlet = "^3.0.3"
+asyncpg = ">=0.29.0"
+psycopg = {extras = ["binary"], version = ">=3.2.0"}
+alembic = ">=1.13.2"
+pydantic = ">=2.8.2"
+pydantic-settings = ">=2.4.0"
+python-dotenv = ">=1.0.1"
+python-frontmatter = ">=1.1.0"
+pyyaml = ">=6.0.2"
+watchdog = ">=4.0.1"
+pgvector = ">=0.3.2"
+mcp = ">=1.9.0"
+httpx = ">=0.27.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=8.3.2"
+pytest-asyncio = ">=0.23.8"
+ruff = ">=0.5.5"
+mypy = ">=1.11.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

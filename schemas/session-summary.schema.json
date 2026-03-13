@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "memory-system/session-summary.schema.json",
+  "title": "SessionSummary",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["task", "project", "type", "tags"],
+  "properties": {
+    "task": { "type": "string" },
+    "project": { "type": "string" },
+    "type": { "const": "session_summary" },
+    "session_date": {
+      "type": ["string", "null"],
+      "format": "date"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "context_pack": { "type": ["string", "null"] },
+    "context_note_paths": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "findings": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "files_modified": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "validation": { "type": ["string", "null"] },
+    "follow_ups": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

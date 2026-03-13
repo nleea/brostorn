@@ -1,0 +1,49 @@
+{
+  "project_name": "gym-trainer",
+  "note_project": "fitness-app",
+  "description": "Personal training platform with trainer and client applications.",
+  
+  "workspace": {
+    "root": "../../..",
+    "frontend_path": "../../gym-trainer-client",
+    "backend_path": "../../trainerGM"
+  },
+
+  "memory": {
+    "docs_path": "./docs",
+    "distilled_context": "./docs/14-distilled-context",
+    "debugging_notes": "./docs/11-debugging",
+    "session_memory": "./docs/15-session-memory"
+  },
+
+  "modules": [
+    "auth",
+    "calendar",
+    "meals",
+    "exercises",
+    "uploads",
+    "reports",
+    "metrics"
+  ],
+
+  "tech_stack": {
+    "frontend": "vue3",
+    "state_management": "pinia",
+    "backend": "fastapi",
+    "database": "postgresql",
+    "async_jobs": "apscheduler",
+    "storage": "cloudflare-r2"
+  },
+
+  "entry_points": {
+    "frontend_router": "gym-trainer-client/src/router/index.ts",
+    "auth_store": "gym-trainer-client/src/stores/auth.ts",
+    "backend_api": "trainerGM/app/main.py"
+  },
+
+  "rules": {
+    "load_distilled_context_first": true,
+    "require_debug_documentation": true,
+    "save_session_memory": true
+  }
+}

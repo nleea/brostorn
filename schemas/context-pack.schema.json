@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "memory-system/context-pack.schema.json",
+  "title": "ContextPackResponse",
+  "type": "object",
+  "required": ["task", "pack_name", "description", "matched_keywords", "notes", "fallback_used"],
+  "properties": {
+    "task": { "type": "string" },
+    "pack_name": { "type": "string" },
+    "description": { "type": "string" },
+    "matched_keywords": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "project": { "type": ["string", "null"] },
+    "project_key": { "type": ["string", "null"] },
+    "active_project": { "type": ["string", "null"] },
+    "system_notes": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/contextNote" }
+    },
+    "project_config_note": {
+      "anyOf": [
+        { "$ref": "#/$defs/contextNote" },
+        { "type": "null" }
+      ]
+    },
+    "project_index_notes": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/contextNote" }
+    },
+    "global_contexts": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/contextNote" }
+    },
+    "project_contexts": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/contextNote" }
+    },
+    "distilled_note": {
+      "anyOf": [
+        { "$ref": "#/$defs/contextNote" },
+        { "type": "null" }
+      ]
+    },
+    "supporting_notes": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/contextNote" }
+    },
+    "notes": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/contextNote" }
+    },
+    "fallback_used": { "type": "boolean" }
+  },
+  "$defs": {
+    "contextNote": {
+      "type": "object",
+      "required": ["path", "title", "tags", "content", "metadata"],
+      "properties": {
+        "id": { "type": ["string", "null"], "format": "uuid" },
+        "path": { "type": "string" },
+        "title": { "type": "string" },
+        "project": { "type": ["string", "null"] },
+        "note_type": { "type": ["string", "null"] },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "content": { "type": "string" },
+        "metadata": { "type": "object" },
+        "indexed_at": { "type": ["string", "null"], "format": "date-time" },
+        "score": { "type": ["number", "null"] },
+        "source_layer": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

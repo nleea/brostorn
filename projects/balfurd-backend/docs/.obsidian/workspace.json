@@ -1,0 +1,218 @@
+{
+  "main": {
+    "id": "ae36f02a15ac12d8",
+    "type": "split",
+    "children": [
+      {
+        "id": "8f6e26306b81bc1e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "60523956643c9676",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "14-distilled-context/distilled.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "distilled"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d9e6059a9263bc2e",
+    "type": "split",
+    "children": [
+      {
+        "id": "8940fb3a78623812",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "412cee52b7561951",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "410575310182a3de",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "b491dd83e95a8f61",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 358.5
+  },
+  "right": {
+    "id": "b0093528c65d7172",
+    "type": "split",
+    "children": [
+      {
+        "id": "c5609b7536023591",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b38eee71e232b85d",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "14-distilled-context/distilled.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for distilled"
+            }
+          },
+          {
+            "id": "6033668b985a35ff",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "14-distilled-context/distilled.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from distilled"
+            }
+          },
+          {
+            "id": "0d84334cbcfce9af",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "c4be0f2da99e1ba7",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "2355d2c657ff31a2",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "14-distilled-context/distilled.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of distilled"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "60523956643c9676",
+  "lastOpenFiles": [
+    "11-debugging/packout-duplicate-value-in-calc-amount-order.md",
+    "11-debugging/packout-excede-valor-correcto-min-billing-value-forzaba-req-pct-0.md",
+    "11-debugging/pack-quantity-igual-a-quantity-en-simple-freqs-to-pack-out-2-incorrecto-2.md",
+    "02-architecture/architecture.md",
+    "05-database/models.md",
+    "13-commands/commands.md",
+    "11-debugging/pack-quantity-igual-a-quantity-en-simple-freqs-to-pack-out-2-incorrecto-3.md",
+    "14-distilled-context/distilled.md",
+    "11-debugging/packout-excede-valor-correcto-al-crear-deliveryitem-2.md",
+    "11-debugging/packout-excede-valor-correcto-al-crear-deliveryitem.md",
+    "11-debugging/pack-quantity-igual-a-quantity-en-simple-freqs-to-pack-out-2-incorrecto.md",
+    "21-session-memory/fixes-de-validaci-n-en-apapllycustomerpage-y-paymententry-completar-mapping-de-tipos-de-pago-redise-o-ui-con-layout-masonry-siguiendo-el-design-system-finance-del-proyecto.md",
+    "03-backend/backend.md",
+    "21-session-memory",
+    "01-project/overview.md",
+    "00-index/README.md",
+    "09-decisions/decisions.md",
+    "10-deployment/deployment.md",
+    "06-features/features.md",
+    "07-patterns/patterns.md",
+    "16-agents",
+    "15-session-memory",
+    "14-distilled-context",
+    "13-commands",
+    "11-debugging",
+    "10-deployment",
+    "09-decisions",
+    "07-patterns",
+    "06-features"
+  ]
+}
