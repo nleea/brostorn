@@ -242,6 +242,9 @@ async def save_note(
     lesson: str | None = None,
     applicability: str | None = None,
     source_paths: list[str] | None = None,
+    # ── cross-type optional ──
+    refs: list[dict] | None = None,
+    ref_id: str | None = None,
     # ── distilled fields ──
     purpose: str | None = None,
     core_flow: list[str] | None = None,
@@ -280,8 +283,10 @@ async def save_note(
                 related_paths=related_paths,
                 follow_ups=follow_ups,
                 updated_at=updated_at,
-                relative_dir="11-debugging",
+                relative_dir="debugging",
                 slug=slug,
+                refs=refs,
+                note_id=ref_id,
             )
 
         if type == "session":
@@ -297,8 +302,10 @@ async def save_note(
                 validation=validation,
                 follow_ups=follow_ups,
                 session_date=session_date,
-                relative_dir="21-session-memory",
+                relative_dir="sessions",
                 slug=slug,
+                refs=refs,
+                note_id=ref_id,
             )
 
         if type == "distilled":
@@ -315,6 +322,8 @@ async def save_note(
                 relevant_files=relevant_files,
                 related_notes=related_notes,
                 slug=slug or module or None,
+                refs=refs,
+                note_id=ref_id,
             )
 
         # type == "learning"
@@ -329,8 +338,10 @@ async def save_note(
             applicability=applicability,
             source_paths=source_paths,
             validation=validation,
-            relative_dir="system/05-cross-project-memory",
+            relative_dir="system/cross-project",
             slug=slug,
+            refs=refs,
+            note_id=ref_id,
         )
 
 

@@ -134,7 +134,7 @@ class DebugNoteSaveRequest(BaseModel):
     related_paths: list[str] | None = None
     follow_ups: list[str] | None = None
     updated_at: str | None = None
-    relative_dir: str = "11-debugging"
+    relative_dir: str = "debugging"
     slug: str | None = None
 
 
@@ -149,7 +149,7 @@ class SessionSummarySaveRequest(BaseModel):
     validation: str | None = None
     follow_ups: list[str] | None = None
     session_date: str | None = None
-    relative_dir: str = "21-session-memory"
+    relative_dir: str = "sessions"
     slug: str | None = None
 
 
@@ -163,5 +163,5 @@ class ReusableLearningSaveRequest(BaseModel):
     applicability: str | None = None
     source_paths: list[str] | None = None
     validation: str | None = None
-    relative_dir: str = "system/05-cross-project-memory"
+    relative_dir: str = "system/cross-project"
     slug: str | None = None

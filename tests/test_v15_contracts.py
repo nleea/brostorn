@@ -21,9 +21,9 @@ def _project_fixture(tmp_path: Path) -> Path:
                 "workspace": {"frontend_path": "../../gym-trainer-client"},
                 "memory": {
                     "docs_path": "./docs",
-                    "distilled_context": "./docs/14-distilled-context",
-                    "debugging_notes": "./docs/11-debugging",
-                    "session_memory": "./docs/15-session-memory"
+                    "distilled_context": "./docs/distilled",
+                    "debugging_notes": "./docs/debugging",
+                    "session_memory": "./docs/sessions"
                 },
                 "modules": ["auth", "calendar"],
             }
@@ -151,4 +151,4 @@ def test_session_end_hook_flags_debug_and_learning_follow_ups(tmp_path: Path) ->
     assert payload["should_save_debug_note"] is True
     assert payload["should_save_session_summary"] is True
     assert payload["should_promote_learning"] is True
-    assert payload["suggested_cross_project_path"] == "system/05-cross-project-memory"
+    assert payload["suggested_cross_project_path"] == "system/cross-project"

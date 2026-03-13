@@ -11,7 +11,7 @@ def test_valid_project_config_loads_correctly() -> None:
             "project_name": "gym-trainer",
             "note_project": "fitness-app",
             "workspace": {"frontend_path": "../../gym-trainer-client"},
-            "memory": {"docs_path": "./docs", "debugging_notes": "./docs/11-debugging"},
+            "memory": {"docs_path": "./docs", "debugging_notes": "./docs/debugging"},
             "modules": ["auth", "calendar", "auth"],
             "entry_points": {"router": "gym-trainer-client/src/router/index.ts"},
             "rules": {"load_distilled_context_first": True},

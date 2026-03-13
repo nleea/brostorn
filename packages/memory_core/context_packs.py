@@ -50,16 +50,16 @@ AUTH_PACK = ContextPackDefinition(
         "auth login logout session refresh router guards auth store frontend debugging",
     ),
     priority_paths=(
-        "01-project/overview.md",
-        "02-architecture/auth-flow.md",
-        "04-frontend/auth-store.md",
-        "04-frontend/router.md",
-        "04-frontend/logout-flow.md",
-        "06-features/authentication.md",
-        "11-debugging/logout-not-redirecting.md",
-        "07-patterns/debugging-patterns.md",
+        "project/overview.md",
+        "architecture/auth-flow.md",
+        "frontend/auth-store.md",
+        "frontend/router.md",
+        "frontend/logout-flow.md",
+        "features/authentication.md",
+        "debugging/logout-not-redirecting.md",
+        "patterns/debugging-patterns.md",
     ),
-    distilled_path="20-distilled-context/auth.md",
+    distilled_path="distilled/auth.md",
 )
 
 DEPLOYMENT_PACK = ContextPackDefinition(
@@ -70,13 +70,13 @@ DEPLOYMENT_PACK = ContextPackDefinition(
         "deployment docker cloudflare monitoring ci cd constraints infrastructure",
     ),
     priority_paths=(
-        "01-project/constraints.md",
-        "10-deployment/docker.md",
-        "10-deployment/cloudflare.md",
-        "10-deployment/monitoring.md",
-        "10-deployment/ci-cd.md",
+        "project/constraints.md",
+        "deployment/docker.md",
+        "deployment/cloudflare.md",
+        "deployment/monitoring.md",
+        "deployment/ci-cd.md",
     ),
-    distilled_path="20-distilled-context/deployment.md",
+    distilled_path="distilled/deployment.md",
 )
 
 DATABASE_PACK = ContextPackDefinition(
@@ -100,13 +100,13 @@ DATABASE_PACK = ContextPackDefinition(
         "database schema migrations pgvector vector db indexing strategy decisions",
     ),
     priority_paths=(
-        "05-database/schema.md",
-        "05-database/migrations.md",
-        "05-database/indexing-strategy.md",
-        "05-database/pgvector.md",
-        "09-decisions/adr-002-vector-db.md",
+        "database/schema.md",
+        "database/migrations.md",
+        "database/indexing-strategy.md",
+        "database/pgvector.md",
+        "decisions/adr-002-vector-db.md",
     ),
-    distilled_path="20-distilled-context/database.md",
+    distilled_path="distilled/database.md",
 )
 
 BACKEND_JOBS_PACK = ContextPackDefinition(
@@ -130,14 +130,14 @@ BACKEND_JOBS_PACK = ContextPackDefinition(
         "background jobs scheduler celery reports error handling backend patterns async",
     ),
     priority_paths=(
-        "03-backend/background-jobs.md",
-        "03-backend/error-handling.md",
-        "03-backend/celery.md",
-        "07-patterns/backend-patterns.md",
-        "07-patterns/async-patterns.md",
-        "11-debugging/celery-task-stuck.md",
+        "backend/background-jobs.md",
+        "backend/error-handling.md",
+        "backend/celery.md",
+        "patterns/backend-patterns.md",
+        "patterns/async-patterns.md",
+        "debugging/celery-task-stuck.md",
     ),
-    distilled_path="20-distilled-context/backend-jobs.md",
+    distilled_path="distilled/backend-jobs.md",
 )
 
 CALENDAR_PACK = ContextPackDefinition(
@@ -159,13 +159,13 @@ CALENDAR_PACK = ContextPackDefinition(
         "calendar scheduling completion daily status meals exercises timezone frontend debugging",
     ),
     priority_paths=(
-        "02-architecture/data-flow.md",
-        "04-frontend/vue-architecture.md",
-        "07-patterns/frontend-patterns.md",
-        "07-patterns/debugging-patterns.md",
-        "11-debugging/calendar-meals-not-completed.md",
+        "architecture/data-flow.md",
+        "frontend/vue-architecture.md",
+        "patterns/frontend-patterns.md",
+        "patterns/debugging-patterns.md",
+        "debugging/calendar-meals-not-completed.md",
     ),
-    distilled_path="20-distilled-context/calendar.md",
+    distilled_path="distilled/calendar.md",
 )
 
 MEALS_PACK = ContextPackDefinition(
@@ -185,13 +185,13 @@ MEALS_PACK = ContextPackDefinition(
         "meals nutrition meal logs meal completion calendar frontend store debugging",
     ),
     priority_paths=(
-        "02-architecture/data-flow.md",
-        "04-frontend/vue-architecture.md",
-        "07-patterns/frontend-patterns.md",
-        "07-patterns/debugging-patterns.md",
-        "11-debugging/calendar-meals-not-completed.md",
+        "architecture/data-flow.md",
+        "frontend/vue-architecture.md",
+        "patterns/frontend-patterns.md",
+        "patterns/debugging-patterns.md",
+        "debugging/calendar-meals-not-completed.md",
     ),
-    distilled_path="20-distilled-context/meals.md",
+    distilled_path="distilled/meals.md",
 )
 
 STATE_PACK = ContextPackDefinition(
@@ -213,9 +213,9 @@ STATE_PACK = ContextPackDefinition(
         "frontend store pinia reactive state cache invalidation computed debugging",
     ),
     priority_paths=(
-        "04-frontend/vue-architecture.md",
-        "07-patterns/frontend-patterns.md",
-        "07-patterns/debugging-patterns.md",
+        "frontend/vue-architecture.md",
+        "patterns/frontend-patterns.md",
+        "patterns/debugging-patterns.md",
     ),
 )
 
@@ -236,10 +236,10 @@ ROUTING_PACK = ContextPackDefinition(
         "router routing redirect navigation guards frontend debugging",
     ),
     priority_paths=(
-        "02-architecture/auth-flow.md",
-        "04-frontend/router.md",
-        "04-frontend/logout-flow.md",
-        "07-patterns/frontend-patterns.md",
+        "architecture/auth-flow.md",
+        "frontend/router.md",
+        "frontend/logout-flow.md",
+        "patterns/frontend-patterns.md",
     ),
 )
 
@@ -262,10 +262,10 @@ UI_PACK = ContextPackDefinition(
         "ui rendering component display visible state synchronization frontend debugging",
     ),
     priority_paths=(
-        "04-frontend/ui-patterns.md",
-        "04-frontend/vue-architecture.md",
-        "07-patterns/frontend-patterns.md",
-        "07-patterns/debugging-patterns.md",
+        "frontend/ui-patterns.md",
+        "frontend/vue-architecture.md",
+        "patterns/frontend-patterns.md",
+        "patterns/debugging-patterns.md",
     ),
 )
 
@@ -275,12 +275,12 @@ GENERAL_PACK = ContextPackDefinition(
     keywords=(),
     search_terms=("project overview architecture recent context",),
     priority_paths=(
-        "00-index/index.md",
-        "01-project/overview.md",
-        "02-architecture/system-overview.md",
-        "02-architecture/service-architecture.md",
+        "index/index.md",
+        "project/overview.md",
+        "architecture/system-overview.md",
+        "architecture/service-architecture.md",
     ),
-    distilled_path="20-distilled-context/general.md",
+    distilled_path="distilled/general.md",
     supporting_limit=2,
 )
 

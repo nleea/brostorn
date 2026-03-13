@@ -192,8 +192,8 @@ class MemoryWorkspace:
     def system_guidance_paths(self) -> list[str]:
         candidates = (
             "system/AGENT_GUIDE.md",
-            "system/00-index/system-index.md",
-            "system/00-index/engineering-brain-index.md",
+            "system/index/system-index.md",
+            "system/index/engineering-brain-index.md",
         )
         return [path for path in candidates if (self.root_path / path).exists()]
 
@@ -226,8 +226,10 @@ class MemoryWorkspace:
 
         candidates = [
             self.to_relative(project.docs_dir / "AGENT_GUIDE.md"),
-            self.to_relative(project.docs_dir / "00-index" / "index.md"),
-            self.to_relative(project.docs_dir / "00-index" / "memory-system-index.md"),
+            self.to_relative(project.docs_dir / "index" / "index.md"),
+            self.to_relative(project.docs_dir / "index" / "memory-system-index.md"),
+            self.to_relative(project.docs_dir / "README.md"),
+            self.to_relative(project.docs_dir / "index.md"),
         ]
         return [path for path in candidates if (self.root_path / path).exists()]
 
@@ -257,9 +259,9 @@ class MemoryWorkspace:
 
         defaults = {
             "docs_path": project.project_dir / "docs",
-            "debugging_notes": project.docs_dir / "11-debugging",
-            "session_memory": project.docs_dir / "21-session-memory",
-            "distilled_context": project.docs_dir / "20-distilled-context",
+            "debugging_notes": project.docs_dir / "debugging",
+            "session_memory": project.docs_dir / "sessions",
+            "distilled_context": project.docs_dir / "distilled",
         }
         fallback = defaults.get(key, project.docs_dir)
         return fallback.resolve()
@@ -282,11 +284,11 @@ class MemoryWorkspace:
             elif note_kind == "session":
                 base_dir = self.resolve_project_memory_dir(resolved_project, "session_memory")
             elif note_kind == "distilled":
-                base_dir = resolved_project.docs_dir / "14-distilled-context"
+                base_dir = resolved_project.docs_dir / "distilled"
             else:
                 base_dir = self.resolve_project_memory_dir(resolved_project, "docs_path")
 
-            target_dir = base_dir if relative_dir in {"", ".", "11-debugging", "21-session-memory", "14-distilled-context"} else (resolved_project.docs_dir / relative_dir)
+            target_dir = base_dir if relative_dir in {"", ".", "debugging", "sessions", "distilled"} else (resolved_project.docs_dir / relative_dir)
             return target_dir.resolve(), resolved_project.note_project
 
         if self.legacy_vault_path is not None:

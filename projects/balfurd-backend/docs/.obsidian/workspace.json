@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "8f6e26306b81bc1e",
+        "id": "219035fa5303f244",
         "type": "tabs",
         "children": [
           {
-            "id": "60523956643c9676",
+            "id": "297bd58e2919e254",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "14-distilled-context/distilled.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "distilled"
+              "title": "New tab"
             }
           }
         ]
@@ -94,7 +90,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "14-distilled-context/distilled.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +99,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for distilled"
+              "title": "Backlinks"
             }
           },
           {
@@ -113,12 +108,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "14-distilled-context/distilled.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from distilled"
+              "title": "Outgoing links"
             }
           },
           {
@@ -156,13 +150,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "14-distilled-context/distilled.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of distilled"
+              "title": "Outline"
             }
           }
         ]
@@ -183,8 +176,36 @@
       "bases:Create new base": false
     }
   },
-  "active": "60523956643c9676",
+  "active": "297bd58e2919e254",
   "lastOpenFiles": [
+    "agents",
+    "commands/commands.md",
+    "commands",
+    "deployment/deployment.md",
+    "deployment",
+    "decisions/decisions.md",
+    "decisions",
+    "patterns/patterns.md",
+    "patterns",
+    "features/features.md",
+    "features",
+    "database/models.md",
+    "database",
+    "frontend",
+    "backend/backend.md",
+    "backend",
+    "architecture/architecture.md",
+    "architecture",
+    "project/overview.md",
+    "project",
+    "index/README.md",
+    "sessions/fixes-de-validaci-n-en-apapllycustomerpage-y-paymententry-completar-mapping-de-tipos-de-pago-redise-o-ui-con-layout-masonry-siguiendo-el-design-system-finance-del-proyecto.md",
+    "distilled/distilled.md",
+    "debugging/packout-duplicate-value-in-calc-amount-order.md",
+    "debugging/fix-payroll-date-ranges-rolling.md",
+    "03-backend/backend.md",
+    "11-debugging/fix-payroll-date-ranges-rolling.md",
+    "14-distilled-context/distilled.md",
     "11-debugging/packout-duplicate-value-in-calc-amount-order.md",
     "11-debugging/packout-excede-valor-correcto-min-billing-value-forzaba-req-pct-0.md",
     "11-debugging/pack-quantity-igual-a-quantity-en-simple-freqs-to-pack-out-2-incorrecto-2.md",
@@ -192,27 +213,6 @@
     "05-database/models.md",
     "13-commands/commands.md",
     "11-debugging/pack-quantity-igual-a-quantity-en-simple-freqs-to-pack-out-2-incorrecto-3.md",
-    "14-distilled-context/distilled.md",
-    "11-debugging/packout-excede-valor-correcto-al-crear-deliveryitem-2.md",
-    "11-debugging/packout-excede-valor-correcto-al-crear-deliveryitem.md",
-    "11-debugging/pack-quantity-igual-a-quantity-en-simple-freqs-to-pack-out-2-incorrecto.md",
-    "21-session-memory/fixes-de-validaci-n-en-apapllycustomerpage-y-paymententry-completar-mapping-de-tipos-de-pago-redise-o-ui-con-layout-masonry-siguiendo-el-design-system-finance-del-proyecto.md",
-    "03-backend/backend.md",
-    "21-session-memory",
-    "01-project/overview.md",
-    "00-index/README.md",
-    "09-decisions/decisions.md",
-    "10-deployment/deployment.md",
-    "06-features/features.md",
-    "07-patterns/patterns.md",
-    "16-agents",
-    "15-session-memory",
-    "14-distilled-context",
-    "13-commands",
-    "11-debugging",
-    "10-deployment",
-    "09-decisions",
-    "07-patterns",
-    "06-features"
+    "11-debugging/packout-excede-valor-correcto-al-crear-deliveryitem-2.md"
   ]
 }

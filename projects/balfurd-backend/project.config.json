@@ -10,9 +10,9 @@
 
   "memory": {
     "docs_path": "./docs",
-    "distilled_context": "./docs/14-distilled-context",
-    "debugging_notes": "./docs/11-debugging",
-    "session_memory": "./docs/15-session-memory"
+    "distilled_context": "./docs/distilled",
+    "debugging_notes": "./docs/debugging",
+    "session_memory": "./docs/sessions"
   },
 
   "modules": [],

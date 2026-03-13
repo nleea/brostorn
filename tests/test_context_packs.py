@@ -107,7 +107,7 @@ def test_build_debug_note_markdown_includes_expected_sections() -> None:
         root_cause="Carrera entre logout y router.",
         solution="Limpiar sesion antes de navegar.",
         fix="Limpiar sesion antes de navegar.",
-        files_changed=["04-frontend/logout-flow.md"],
+        files_changed=["frontend/logout-flow.md"],
         validation="Logout y login validados.",
         status="verified",
         validation_steps=["Logout", "Login"],
@@ -116,13 +116,13 @@ def test_build_debug_note_markdown_includes_expected_sections() -> None:
         updated_at="2026-03-11",
         project="fitness-app",
         tags=["fitness-app", "debugging"],
-        related_paths=["04-frontend/logout-flow.md"],
+        related_paths=["frontend/logout-flow.md"],
     )
 
     assert "type: bug_fix" in markdown
     assert "# Logout Not Redirecting" in markdown
     assert "## Root Cause" in markdown
-    assert "[[04-frontend/logout-flow]]" in markdown
+    assert "[[frontend/logout-flow]]" in markdown
 
 
 def test_build_session_summary_markdown_includes_expected_sections() -> None:
@@ -131,7 +131,7 @@ def test_build_session_summary_markdown_includes_expected_sections() -> None:
         project="memory-system",
         tags=["memory-system", "session-memory"],
         context_pack="database",
-        context_note_paths=["20-distilled-context/database.md", "05-database/schema.md"],
+        context_note_paths=["distilled/database.md", "database/schema.md"],
         findings=["Distilled notes should come from the vault first."],
         files_modified=["packages/memory_core/context_pack_service.py"],
         validation="pytest -q",
@@ -142,7 +142,7 @@ def test_build_session_summary_markdown_includes_expected_sections() -> None:
     assert "type: session_summary" in markdown
     assert "## Context Loaded" in markdown
     assert "`database`" in markdown
-    assert "[[20-distilled-context/database]]" in markdown
+    assert "[[distilled/database]]" in markdown
     assert "## Files Modified" in markdown
     assert "context_note_paths:" in markdown
 
@@ -231,21 +231,21 @@ class DummySearchService:
 
 @pytest.mark.asyncio
 async def test_get_context_pack_prefers_distilled_note_and_limits_supporting_notes(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
-    (tmp_path / "system" / "00-index").mkdir(parents=True, exist_ok=True)
+    (tmp_path / "system" / "index").mkdir(parents=True, exist_ok=True)
     (tmp_path / "system" / "AGENT_GUIDE.md").write_text("# Guide\n", encoding="utf-8")
-    (tmp_path / "system" / "00-index" / "system-index.md").write_text("# Index\n", encoding="utf-8")
-    (tmp_path / "system" / "00-index" / "engineering-brain-index.md").write_text("# Brain\n", encoding="utf-8")
+    (tmp_path / "system" / "index" / "system-index.md").write_text("# Index\n", encoding="utf-8")
+    (tmp_path / "system" / "index" / "engineering-brain-index.md").write_text("# Brain\n", encoding="utf-8")
 
     project_dir = tmp_path / "projects" / "gym-trainer"
-    (project_dir / "docs" / "14-distilled-context").mkdir(parents=True, exist_ok=True)
+    (project_dir / "docs" / "distilled").mkdir(parents=True, exist_ok=True)
     (project_dir / "docs" / "AGENT_GUIDE.md").write_text("# Project Guide\n", encoding="utf-8")
-    (project_dir / "docs" / "00-index").mkdir(parents=True, exist_ok=True)
-    (project_dir / "docs" / "00-index" / "index.md").write_text("# Project Index\n", encoding="utf-8")
-    (project_dir / "docs" / "00-index" / "memory-system-index.md").write_text("# Memory Index\n", encoding="utf-8")
-    (project_dir / "docs" / "02-architecture").mkdir(parents=True, exist_ok=True)
-    (project_dir / "docs" / "02-architecture" / "auth-flow.md").write_text("# Auth Flow\n", encoding="utf-8")
-    (project_dir / "docs" / "04-frontend").mkdir(parents=True, exist_ok=True)
-    (project_dir / "docs" / "04-frontend" / "router.md").write_text("# Router\n", encoding="utf-8")
+    (project_dir / "docs" / "index").mkdir(parents=True, exist_ok=True)
+    (project_dir / "docs" / "index" / "index.md").write_text("# Project Index\n", encoding="utf-8")
+    (project_dir / "docs" / "index" / "memory-system-index.md").write_text("# Memory Index\n", encoding="utf-8")
+    (project_dir / "docs" / "architecture").mkdir(parents=True, exist_ok=True)
+    (project_dir / "docs" / "architecture" / "auth-flow.md").write_text("# Auth Flow\n", encoding="utf-8")
+    (project_dir / "docs" / "frontend").mkdir(parents=True, exist_ok=True)
+    (project_dir / "docs" / "frontend" / "router.md").write_text("# Router\n", encoding="utf-8")
     (project_dir / "project.config.json").write_text(
         """
         {
@@ -254,9 +254,9 @@ async def test_get_context_pack_prefers_distilled_note_and_limits_supporting_not
           "workspace": {"frontend_path": "../client"},
           "memory": {
             "docs_path": "./docs",
-            "distilled_context": "./docs/14-distilled-context",
-            "debugging_notes": "./docs/11-debugging",
-            "session_memory": "./docs/15-session-memory"
+            "distilled_context": "./docs/distilled",
+            "debugging_notes": "./docs/debugging",
+            "session_memory": "./docs/sessions"
           },
           "modules": ["auth"]
         }
@@ -264,7 +264,7 @@ async def test_get_context_pack_prefers_distilled_note_and_limits_supporting_not
         encoding="utf-8",
     )
 
-    distilled_path = project_dir / "docs" / "14-distilled-context" / "auth.md"
+    distilled_path = project_dir / "docs" / "distilled" / "auth.md"
     distilled_path.parent.mkdir(parents=True, exist_ok=True)
     distilled_path.write_text(
         "---\nproject: fitness-app\ntype: distilled_context\ntags: [auth]\n---\n\n# Auth\n\nCompact auth summary.\n",
@@ -273,7 +273,7 @@ async def test_get_context_pack_prefers_distilled_note_and_limits_supporting_not
 
     note_one = SimpleNamespace(
         id=uuid4(),
-        path="projects/gym-trainer/docs/02-architecture/auth-flow.md",
+        path="projects/gym-trainer/docs/architecture/auth-flow.md",
         title="Auth Flow",
         project="fitness-app",
         note_type="architecture",
@@ -283,7 +283,7 @@ async def test_get_context_pack_prefers_distilled_note_and_limits_supporting_not
     )
     note_two = SimpleNamespace(
         id=uuid4(),
-        path="projects/gym-trainer/docs/04-frontend/router.md",
+        path="projects/gym-trainer/docs/frontend/router.md",
         title="Router",
         project="fitness-app",
         note_type="frontend",
@@ -335,7 +335,7 @@ async def test_get_context_pack_prefers_distilled_note_and_limits_supporting_not
     assert payload["project_key"] == "fitness-app"
     assert payload["system_notes"][0]["path"] == "system/AGENT_GUIDE.md"
     assert payload["project_config_note"]["path"] == "projects/gym-trainer/project.config.json"
-    assert payload["distilled_note"]["path"] == "projects/gym-trainer/docs/14-distilled-context/auth.md"
+    assert payload["distilled_note"]["path"] == "projects/gym-trainer/docs/distilled/auth.md"
     assert len(payload["supporting_notes"]) == 2
     assert all(note["source_layer"] == "supporting" for note in payload["supporting_notes"])
 
@@ -344,8 +344,8 @@ async def test_get_context_pack_prefers_distilled_note_and_limits_supporting_not
 async def test_get_context_pack_handles_missing_distilled_note(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     project_dir = tmp_path / "projects" / "gym-trainer"
     (project_dir / "docs").mkdir(parents=True, exist_ok=True)
-    (project_dir / "docs" / "05-database").mkdir(parents=True, exist_ok=True)
-    (project_dir / "docs" / "05-database" / "schema.md").write_text("# Schema\n", encoding="utf-8")
+    (project_dir / "docs" / "database").mkdir(parents=True, exist_ok=True)
+    (project_dir / "docs" / "database" / "schema.md").write_text("# Schema\n", encoding="utf-8")
     (project_dir / "project.config.json").write_text(
         """
         {
@@ -359,7 +359,7 @@ async def test_get_context_pack_handles_missing_distilled_note(tmp_path: Path, m
     )
     note_one = SimpleNamespace(
         id=uuid4(),
-        path="projects/gym-trainer/docs/05-database/schema.md",
+        path="projects/gym-trainer/docs/database/schema.md",
         title="Schema",
         project="fitness-app",
         note_type="database",
@@ -393,7 +393,7 @@ async def test_get_context_pack_handles_missing_distilled_note(tmp_path: Path, m
     payload = await service.get_context_pack(db=None, task="inspect database migrations", project=None, limit=2)
 
     assert payload["distilled_note"] is None
-    assert payload["supporting_notes"][0]["path"] == "projects/gym-trainer/docs/05-database/schema.md"
+    assert payload["supporting_notes"][0]["path"] == "projects/gym-trainer/docs/database/schema.md"
 
 
 @pytest.mark.asyncio
@@ -401,10 +401,10 @@ async def test_get_context_pack_includes_global_and_project_contexts_for_calenda
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    (tmp_path / "system" / "00-index").mkdir(parents=True, exist_ok=True)
+    (tmp_path / "system" / "index").mkdir(parents=True, exist_ok=True)
     (tmp_path / "system" / "AGENT_GUIDE.md").write_text("# Guide\n", encoding="utf-8")
-    (tmp_path / "system" / "00-index" / "system-index.md").write_text("# Index\n", encoding="utf-8")
-    (tmp_path / "system" / "00-index" / "engineering-brain-index.md").write_text("# Brain\n", encoding="utf-8")
+    (tmp_path / "system" / "index" / "system-index.md").write_text("# Index\n", encoding="utf-8")
+    (tmp_path / "system" / "index" / "engineering-brain-index.md").write_text("# Brain\n", encoding="utf-8")
     (tmp_path / "contexts").mkdir(parents=True, exist_ok=True)
     (tmp_path / "contexts" / "debug-calendar.md").write_text(
         "---\nkeywords: [calendar, meals, completion]\npriority: 3\n---\n\n# Debug Calendar\n",
@@ -420,20 +420,20 @@ async def test_get_context_pack_includes_global_and_project_contexts_for_calenda
     )
 
     project_dir = tmp_path / "projects" / "gym-trainer"
-    (project_dir / "docs" / "14-distilled-context").mkdir(parents=True, exist_ok=True)
-    (project_dir / "docs" / "00-index").mkdir(parents=True, exist_ok=True)
-    (project_dir / "docs" / "00-index" / "index.md").write_text("# Project Index\n", encoding="utf-8")
-    (project_dir / "docs" / "00-index" / "memory-system-index.md").write_text("# Memory Index\n", encoding="utf-8")
+    (project_dir / "docs" / "distilled").mkdir(parents=True, exist_ok=True)
+    (project_dir / "docs" / "index").mkdir(parents=True, exist_ok=True)
+    (project_dir / "docs" / "index" / "index.md").write_text("# Project Index\n", encoding="utf-8")
+    (project_dir / "docs" / "index" / "memory-system-index.md").write_text("# Memory Index\n", encoding="utf-8")
     (project_dir / "docs" / "AGENT_GUIDE.md").write_text("# Project Guide\n", encoding="utf-8")
-    (project_dir / "docs" / "02-architecture").mkdir(parents=True, exist_ok=True)
-    (project_dir / "docs" / "02-architecture" / "data-flow.md").write_text("# Data Flow\n", encoding="utf-8")
-    (project_dir / "docs" / "04-frontend").mkdir(parents=True, exist_ok=True)
-    (project_dir / "docs" / "04-frontend" / "vue-architecture.md").write_text("# Vue Architecture\n", encoding="utf-8")
-    (project_dir / "docs" / "07-patterns").mkdir(parents=True, exist_ok=True)
-    (project_dir / "docs" / "07-patterns" / "frontend-patterns.md").write_text("# Frontend Patterns\n", encoding="utf-8")
-    (project_dir / "docs" / "07-patterns" / "debugging-patterns.md").write_text("# Debugging Patterns\n", encoding="utf-8")
-    (project_dir / "docs" / "11-debugging").mkdir(parents=True, exist_ok=True)
-    (project_dir / "docs" / "11-debugging" / "calendar-meals-not-completed.md").write_text("# Calendar Meals\n", encoding="utf-8")
+    (project_dir / "docs" / "architecture").mkdir(parents=True, exist_ok=True)
+    (project_dir / "docs" / "architecture" / "data-flow.md").write_text("# Data Flow\n", encoding="utf-8")
+    (project_dir / "docs" / "frontend").mkdir(parents=True, exist_ok=True)
+    (project_dir / "docs" / "frontend" / "vue-architecture.md").write_text("# Vue Architecture\n", encoding="utf-8")
+    (project_dir / "docs" / "patterns").mkdir(parents=True, exist_ok=True)
+    (project_dir / "docs" / "patterns" / "frontend-patterns.md").write_text("# Frontend Patterns\n", encoding="utf-8")
+    (project_dir / "docs" / "patterns" / "debugging-patterns.md").write_text("# Debugging Patterns\n", encoding="utf-8")
+    (project_dir / "docs" / "debugging").mkdir(parents=True, exist_ok=True)
+    (project_dir / "docs" / "debugging" / "calendar-meals-not-completed.md").write_text("# Calendar Meals\n", encoding="utf-8")
     (project_dir / "contexts").mkdir(parents=True, exist_ok=True)
     (project_dir / "contexts" / "debug-calendar.md").write_text(
         "---\nkeywords: [calendar, completion, meals]\npriority: 4\n---\n\n# Project Debug Calendar\n",
@@ -451,21 +451,21 @@ async def test_get_context_pack_includes_global_and_project_contexts_for_calenda
           "workspace": {"frontend_path": "../client"},
           "memory": {
             "docs_path": "./docs",
-            "distilled_context": "./docs/14-distilled-context"
+            "distilled_context": "./docs/distilled"
           },
           "modules": ["calendar", "meals", "auth"]
         }
         """.strip(),
         encoding="utf-8",
     )
-    (project_dir / "docs" / "14-distilled-context" / "calendar.md").write_text(
+    (project_dir / "docs" / "distilled" / "calendar.md").write_text(
         "---\nproject: fitness-app\ntype: distilled_context\ntags: [calendar]\n---\n\n# Calendar\n\nCalendar summary.\n",
         encoding="utf-8",
     )
 
     note_one = SimpleNamespace(
         id=uuid4(),
-        path="projects/gym-trainer/docs/11-debugging/calendar-meals-not-completed.md",
+        path="projects/gym-trainer/docs/debugging/calendar-meals-not-completed.md",
         title="Calendar Meals Not Completed",
         project="fitness-app",
         note_type="bug_fix",
@@ -530,7 +530,7 @@ async def test_get_context_pack_includes_global_and_project_contexts_for_calenda
         "projects/gym-trainer/contexts/debug-calendar.md",
         "projects/gym-trainer/contexts/debug-meals.md",
     ]
-    assert payload["distilled_note"]["path"] == "projects/gym-trainer/docs/14-distilled-context/calendar.md"
+    assert payload["distilled_note"]["path"] == "projects/gym-trainer/docs/distilled/calendar.md"
 
 
 @pytest.mark.asyncio
@@ -538,10 +538,10 @@ async def test_get_context_pack_can_add_semantic_context_templates_not_matched_l
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    (tmp_path / "system" / "00-index").mkdir(parents=True, exist_ok=True)
+    (tmp_path / "system" / "index").mkdir(parents=True, exist_ok=True)
     (tmp_path / "system" / "AGENT_GUIDE.md").write_text("# Guide\n", encoding="utf-8")
-    (tmp_path / "system" / "00-index" / "system-index.md").write_text("# Index\n", encoding="utf-8")
-    (tmp_path / "system" / "00-index" / "engineering-brain-index.md").write_text("# Brain\n", encoding="utf-8")
+    (tmp_path / "system" / "index" / "system-index.md").write_text("# Index\n", encoding="utf-8")
+    (tmp_path / "system" / "index" / "engineering-brain-index.md").write_text("# Brain\n", encoding="utf-8")
     (tmp_path / "contexts").mkdir(parents=True, exist_ok=True)
     (tmp_path / "contexts" / "debug-calendar.md").write_text(
         "---\nkeywords: [calendar, meals, completion]\npriority: 3\n---\n\n# Debug Calendar\n",
@@ -553,29 +553,29 @@ async def test_get_context_pack_can_add_semantic_context_templates_not_matched_l
     )
 
     project_dir = tmp_path / "projects" / "gym-trainer"
-    (project_dir / "docs" / "14-distilled-context").mkdir(parents=True, exist_ok=True)
-    (project_dir / "docs" / "00-index").mkdir(parents=True, exist_ok=True)
-    (project_dir / "docs" / "00-index" / "index.md").write_text("# Project Index\n", encoding="utf-8")
-    (project_dir / "docs" / "00-index" / "memory-system-index.md").write_text("# Memory Index\n", encoding="utf-8")
+    (project_dir / "docs" / "distilled").mkdir(parents=True, exist_ok=True)
+    (project_dir / "docs" / "index").mkdir(parents=True, exist_ok=True)
+    (project_dir / "docs" / "index" / "index.md").write_text("# Project Index\n", encoding="utf-8")
+    (project_dir / "docs" / "index" / "memory-system-index.md").write_text("# Memory Index\n", encoding="utf-8")
     (project_dir / "docs" / "AGENT_GUIDE.md").write_text("# Project Guide\n", encoding="utf-8")
-    (project_dir / "docs" / "02-architecture").mkdir(parents=True, exist_ok=True)
-    (project_dir / "docs" / "02-architecture" / "data-flow.md").write_text("# Data Flow\n", encoding="utf-8")
-    (project_dir / "docs" / "07-patterns").mkdir(parents=True, exist_ok=True)
-    (project_dir / "docs" / "07-patterns" / "frontend-patterns.md").write_text("# Frontend Patterns\n", encoding="utf-8")
-    (project_dir / "docs" / "07-patterns" / "debugging-patterns.md").write_text("# Debugging Patterns\n", encoding="utf-8")
+    (project_dir / "docs" / "architecture").mkdir(parents=True, exist_ok=True)
+    (project_dir / "docs" / "architecture" / "data-flow.md").write_text("# Data Flow\n", encoding="utf-8")
+    (project_dir / "docs" / "patterns").mkdir(parents=True, exist_ok=True)
+    (project_dir / "docs" / "patterns" / "frontend-patterns.md").write_text("# Frontend Patterns\n", encoding="utf-8")
+    (project_dir / "docs" / "patterns" / "debugging-patterns.md").write_text("# Debugging Patterns\n", encoding="utf-8")
     (project_dir / "project.config.json").write_text(
         """
         {
           "project_name": "gym-trainer",
           "note_project": "fitness-app",
           "workspace": {"frontend_path": "../client"},
-          "memory": {"docs_path": "./docs", "distilled_context": "./docs/14-distilled-context"},
+          "memory": {"docs_path": "./docs", "distilled_context": "./docs/distilled"},
           "modules": ["calendar", "meals"]
         }
         """.strip(),
         encoding="utf-8",
     )
-    (project_dir / "docs" / "14-distilled-context" / "calendar.md").write_text(
+    (project_dir / "docs" / "distilled" / "calendar.md").write_text(
         "---\nproject: fitness-app\ntype: distilled_context\ntags: [calendar]\n---\n\n# Calendar\n\nCalendar summary.\n",
         encoding="utf-8",
     )
@@ -769,7 +769,7 @@ async def test_rank_context_templates_uses_session_feedback_bonus(
 
     session_summary = SimpleNamespace(
         id=uuid4(),
-        path="projects/gym-trainer/docs/15-session-memory/s1.md",
+        path="projects/gym-trainer/docs/sessions/s1.md",
         title="Session 1",
         project="fitness-app",
         note_type="session_summary",

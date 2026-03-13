@@ -34,14 +34,14 @@ def _build_workspace(tmp_path: Path) -> MemoryWorkspace:
                 "workspace": {"backend_path": "../../trainerGM"},
                 "memory": {
                     "docs_path": "./docs",
-                    "debugging_notes": "./docs/11-debugging",
-                    "session_memory": "./docs/15-session-memory",
+                    "debugging_notes": "./docs/debugging",
+                    "session_memory": "./docs/sessions",
                 },
             }
         ),
         encoding="utf-8",
     )
-    (tmp_path / "system" / "05-cross-project-memory").mkdir(parents=True, exist_ok=True)
+    (tmp_path / "system" / "cross-project").mkdir(parents=True, exist_ok=True)
     return MemoryWorkspace(root_path=tmp_path, active_project_name="gym-trainer")
 
 
@@ -84,13 +84,13 @@ def test_build_reusable_learning_markdown_includes_cross_project_sections() -> N
         category="reusable-solutions",
         lesson="Store reset ordering matters.",
         applicability="Any client app with route guards.",
-        source_paths=["projects/gym-trainer/docs/11-debugging/logout-not-redirecting.md"],
+        source_paths=["projects/gym-trainer/docs/debugging/logout-not-redirecting.md"],
         validation="Verified on login and logout flows.",
     )
 
     assert "type: cross_project_learning" in markdown
     assert "## Applicability" in markdown
-    assert "[[projects/gym-trainer/docs/11-debugging/logout-not-redirecting]]" in markdown
+    assert "[[projects/gym-trainer/docs/debugging/logout-not-redirecting]]" in markdown
 
 
 @pytest.mark.asyncio
@@ -118,7 +118,8 @@ async def test_save_debug_note_writes_project_scoped_file(tmp_path: Path) -> Non
     output_path = tmp_path / payload["path"]
     assert payload["debug_status"] == "fixed"
     assert output_path.exists()
-    assert "projects/gym-trainer/docs/11-debugging" in payload["path"]
+    assert "id" in payload
+    assert "projects/gym-trainer/docs/debugging" in payload["path"]
     assert indexer.indexed_paths == [payload["path"]]
     content = output_path.read_text(encoding="utf-8")
     assert "status: fixed" in content
@@ -142,7 +143,8 @@ async def test_save_session_summary_writes_project_session_memory(tmp_path: Path
 
     output_path = tmp_path / payload["path"]
     assert output_path.exists()
-    assert "projects/gym-trainer/docs/15-session-memory" in payload["path"]
+    assert "id" in payload
+    assert "projects/gym-trainer/docs/sessions" in payload["path"]
     content = output_path.read_text(encoding="utf-8")
     assert "session_date: '2026-03-11'" in content
     assert "## Findings" in content
@@ -160,10 +162,10 @@ async def test_save_reusable_learning_writes_system_memory(tmp_path: Path) -> No
         summary="Reset auth state before navigation to avoid stale guard checks.",
         project="gym-trainer",
         category="architecture-lessons",
-        source_paths=["projects/gym-trainer/docs/11-debugging/auth-regression.md"],
+        source_paths=["projects/gym-trainer/docs/debugging/auth-regression.md"],
     )
 
     output_path = tmp_path / payload["path"]
     assert output_path.exists()
     assert payload["category"] == "architecture-lessons"
-    assert payload["path"].startswith("system/05-cross-project-memory")
+    assert payload["path"].startswith("system/cross-project")

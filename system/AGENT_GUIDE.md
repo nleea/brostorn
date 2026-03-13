@@ -137,8 +137,8 @@ When working on a task:
 
 1. Read:
 
-system/00-index/system-index.md
-system/00-index/engineering-brain-index.md
+system/index/system-index.md
+system/index/engineering-brain-index.md
 
 2. Load relevant global rules and commands.
 
@@ -158,7 +158,7 @@ projects/<project>/contexts/
 
 6. Load project distilled context:
 
-projects/<project>/docs/14-distilled-context/
+projects/<project>/docs/distilled/
 
 7. Inspect the real code.
 
@@ -225,7 +225,7 @@ When debugging an issue:
 
 Debugging notes must be saved in:
 
-projects/<project>/docs/11-debugging/
+projects/<project>/docs/debugging/
 
 Each note should include:
 
@@ -246,7 +246,7 @@ open → fixed → verified
 
 At the end of complex work sessions, save a summary in:
 
-projects/<project>/docs/15-session-memory/
+projects/<project>/docs/sessions/
 
 Include:
 
@@ -287,13 +287,30 @@ applicability : when to apply it
 project       : optional (cross-project learnings can omit it)
 ```
 
+## Note ID and cross-referencing
+
+Notes are saved with an auto-generated `id` in frontmatter (e.g., `bf-2026-03-13-001`).
+Use the `refs` frontmatter field to cross-reference related notes by ID.
+
+Example frontmatter:
+
+```yaml
+---
+id: bf-2026-03-13-001
+type: bug_fix
+refs:
+  - ss-2026-03-12-002
+  - ln-2026-03-10-001
+---
+```
+
 ---
 
 # Cross-Project Learning
 
 If a solved problem represents reusable knowledge, promote it to:
 
-memory-system/system/05-cross-project-memory/
+memory-system/system/cross-project/
 
 Examples:
 

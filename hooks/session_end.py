@@ -46,7 +46,7 @@ def build_session_end_payload(
         "suggested_debug_status": "verified" if validation_performed and debug_status == "fixed" else debug_status,
         "should_save_session_summary": should_save_session_summary,
         "should_promote_learning": should_promote_learning,
-        "suggested_cross_project_path": "system/05-cross-project-memory",
+        "suggested_cross_project_path": "system/cross-project",
         "files_modified": files_modified or [],
     }
 
